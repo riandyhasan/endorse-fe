@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ICONS from '../../utils/icons';
+import { useRouter } from 'next/navigation';
 
 export default function Header({ back, message, notif }) {
+  const router = useRouter();
   return (
     <header
       className='flex items-center justify-between px-4 py-2 min-h-14'
@@ -13,7 +15,7 @@ export default function Header({ back, message, notif }) {
       }}
     >
       {back ? (
-        <Link href='/'>
+        <div onClick={() => router.back()} className='cursor-pointer'>
           <Image
             src={ICONS.BACK}
             alt='Back'
@@ -21,7 +23,7 @@ export default function Header({ back, message, notif }) {
             height={24}
             className='text-white'
           />
-        </Link>
+        </div>
       ) : (
         <div></div>
       )}

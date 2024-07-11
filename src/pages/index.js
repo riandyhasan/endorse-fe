@@ -1,10 +1,28 @@
 import Image from 'next/image';
 import Header from '../components/Layout/Header';
+import CampaignCard from '../components/Card/CampaignCard';
 import IMAGES from '../utils/images';
+import ICONS from '../utils/icons';
+import Link from 'next/link';
+
+const HISTORIES = [
+  {
+    image: IMAGES.HISTORY_1,
+    title: 'Iklan Video Pakaian Pria',
+    influencer: 'Windah Batubara',
+    price: 'Rp150.000',
+  },
+  {
+    image: IMAGES.HISTORY_2,
+    title: 'Iklan Video Kosmetik',
+    influencer: 'Windah Batubara',
+    price: 'Rp150.000',
+  },
+];
 
 export default function Home() {
   return (
-    <div className='shadow-md overflow-x-hidden h-full'>
+    <div className='shadow-md overflow-x-hidden min-h-[100vh]'>
       <Header notif={true} message={true} />
       <div className='flex flex-col'>
         <div className='flex w-full flex-col px-8'>
@@ -31,14 +49,14 @@ export default function Home() {
               <p className='text-[#0067B4]'>Engagement Rate</p>
               <p className='text-2xl font-bold mt-2'>73%</p>
             </div>
-            <div className='flex justify-between mt-2'>
-              <div className='w-full bg-[rgba(18,194,198,0.1)] p-3'>
+            <div className='flex justify-between mt-2 gap-4'>
+              <div className='w-full bg-[rgba(18,194,198,0.1)] p-3 rounded-md'>
                 <p className='text-md text-[#12C2C6]'>Like</p>
-                <p className='text-lg font-bold mt-2'>1000</p>
+                <p className='text-lg font-bold mt-1'>1000k</p>
               </div>
-              <div className='w-full bg-[rgba(18,194,198,0.1)] p-3'>
+              <div className='w-full bg-[rgba(18,194,198,0.1)] p-3 rounded-md'>
                 <p className='text-md text-[#12C2C6]'>Comment</p>
-                <p className='text-lg font-bold mt-2'>12k</p>
+                <p className='text-lg font-bold mt-1'>12k</p>
               </div>
             </div>
           </div>
@@ -50,13 +68,40 @@ export default function Home() {
             className='w-full object-cover'
           />
         </div>
-        <div className='mt-4'>
-          <p className='text-gray-600 font-bold'>Riwayat Campaign</p>
+        <div className='mt-4 px-4'>
+          <p className='text-2xl font-semi'>Riwayat Campaign</p>
         </div>
-        <div className='mt-6 text-center'>
-          <button className='bg-blue-500 text-white py-2 px-4 rounded-lg'>
-            Buat Iklan Baru
-          </button>
+        <div className='flex flex-col gap-4 p-4'>
+          {HISTORIES.map((ht, idx) => (
+            <CampaignCard
+              key={idx}
+              title={ht.title}
+              image={ht.image}
+              influencer={ht.influencer}
+              price={ht.price}
+            />
+          ))}
+        </div>
+        <div className='text-end px-4'>
+          <Link href='/campaign'>
+            <button
+              className='text-white py-2 px-4 rounded-full'
+              style={{
+                background:
+                  'linear-gradient(90deg, rgba(18,194,198,1) 1%, rgba(0,103,180,1) 100%)',
+              }}
+            >
+              <div className='flex gap-2 items-center'>
+                <Image
+                  src={ICONS.MAGIC_WAND}
+                  alt='New Campaing'
+                  width={25}
+                  height={25}
+                />
+                <div>Buat Iklan Baru</div>
+              </div>
+            </button>
+          </Link>
         </div>
       </div>
     </div>
