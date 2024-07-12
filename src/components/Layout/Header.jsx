@@ -3,7 +3,7 @@ import Link from 'next/link';
 import ICONS from '../../utils/icons';
 import { useRouter } from 'next/navigation';
 
-export default function Header({ back, message, notif }) {
+export default function Header({ back, search }) {
   const router = useRouter();
   return (
     <header
@@ -28,22 +28,11 @@ export default function Header({ back, message, notif }) {
         <div></div>
       )}
       <div className='relative flex items-center space-x-4'>
-        {message ? (
+        {search ? (
           <div className='w-10 h-10 rounded-full flex items-center justify-center'>
             <Image
-              src={ICONS.MESSAGE}
-              alt='Messages'
-              width={36}
-              height={36}
-              className='text-white'
-            />
-          </div>
-        ) : null}
-        {notif ? (
-          <div className='w-10 h-10 rounded-full flex items-center justify-center'>
-            <Image
-              src={ICONS.NOTIFICATION}
-              alt='Notifications'
+              src={ICONS.SEARCH}
+              alt='Search'
               width={30}
               height={30}
               className='text-white'

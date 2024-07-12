@@ -7,7 +7,7 @@ import INSTAGRAM from '../../public/icons/instagram.svg';
 import TWITTER from '../../public/icons/twitter.svg';
 import MAGIC_WAND from '../../public/icons/magic_wand.svg';
 import SEND from '../../public/icons/send.svg';
-
+import SEARCH from '../../public/icons/search.svg';
 const ICONS = {
   BACK,
   NEXT,
@@ -18,6 +18,7 @@ const ICONS = {
   TWITTER,
   MAGIC_WAND,
   SEND,
+  SEARCH,
 };
 
 export default ICONS;

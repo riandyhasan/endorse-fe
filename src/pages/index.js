@@ -23,7 +23,7 @@ const HISTORIES = [
 export default function Home() {
   return (
     <div className='shadow-md overflow-hidden h-full pt-[4rem]'>
-      <Header notif={true} message={true} />
+      <Header search={true} />
       <div className='flex flex-col'>
         <div className='flex w-full flex-col px-8'>
           {/* Product Profile */}
