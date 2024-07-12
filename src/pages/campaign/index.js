@@ -1,12 +1,9 @@
-// pages/campaign.js
-
 import Image from 'next/image';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import ICONS from '../../utils/icons';
 import Header from '../../components/Layout/Header';
-import Link from 'next/link';
 
 export default function Campaign() {
   const [formData, setFormData] = useState({
@@ -15,6 +12,7 @@ export default function Campaign() {
     kategoriIklan: '',
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const router = useRouter();
 
@@ -44,7 +42,19 @@ export default function Campaign() {
     }));
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.namaIklan) newErrors.namaIklan = 'Campaign Name is required';
+    if (!formData.namaProduk) newErrors.namaProduk = 'Product Name is required';
+    if (!formData.kategoriIklan)
+      newErrors.kategoriIklan = 'Category is required';
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleCreateBrief = async (withAI) => {
+    if (!validateForm()) return;
+
     setIsLoading(true);
     try {
       if (withAI) {
@@ -63,7 +73,7 @@ export default function Campaign() {
       } else {
         sessionStorage.removeItem('brief');
       }
-
+      sessionStorage.setItem('campaign', JSON.stringify(formData));
       router.push('/campaign/brief');
     } catch (error) {
       console.error('Error creating campaign with AI:', error);
@@ -89,22 +99,36 @@ export default function Campaign() {
             <input
               type='text'
               name='namaIklan'
-              className='mt-1 p-2 w-full border rounded-md bg-[#F5F5F5]'
+              className={`mt-1 p-2 w-full border rounded-md ${
+                errors.namaIklan
+                  ? 'border-red-500 bg-red-100'
+                  : 'border-gray-300 bg-[#F5F5F5]'
+              }`}
               placeholder='Ex: Food Review Video'
               value={formData.namaIklan}
               onChange={handleChange}
             />
+            {errors.namaIklan && (
+              <p className='text-red-500 text-sm mt-1'>{errors.namaIklan}</p>
+            )}
           </div>
           <div className='mt-4'>
             <label className='block text-gray-700 text-md'>Product Name</label>
             <input
               type='text'
               name='namaProduk'
-              className='mt-1 p-2 w-full border rounded-md bg-[#F5F5F5]'
+              className={`mt-1 p-2 w-full border rounded-md ${
+                errors.namaProduk
+                  ? 'border-red-500 bg-red-100'
+                  : 'border-gray-300 bg-[#F5F5F5]'
+              }`}
               placeholder='Ayam Geprek Sambal Mata'
               value={formData.namaProduk}
               onChange={handleChange}
             />
+            {errors.namaProduk && (
+              <p className='text-red-500 text-sm mt-1'>{errors.namaProduk}</p>
+            )}
           </div>
           <div className='mt-4'>
             <label className='block text-gray-700 text-md'>Category</label>
@@ -123,6 +147,11 @@ export default function Campaign() {
                 </span>
               ))}
             </div>
+            {errors.kategoriIklan && (
+              <p className='text-red-500 text-sm mt-1'>
+                {errors.kategoriIklan}
+              </p>
+            )}
           </div>
         </div>
         <div></div>

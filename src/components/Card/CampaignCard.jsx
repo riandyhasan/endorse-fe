@@ -9,7 +9,7 @@ export default function CampaignCard({ key, image, title, influencer, price }) {
         <div>
           <div className='flex w-full items-center justify-between'>
             <p className='text-bold text-lg'>{title}</p>
-            <Image src={ICONS.NEXT} alt='Next' width={12} height={12} />
+            <Image src={ICONS.NEXT} alt='Next' width={20} height={20} />
           </div>
           <div className='mt-2'>
             <p className='text-gray-600 text-sm'>{influencer}</p>
@@ -28,7 +28,7 @@ export default function CampaignCard({ key, image, title, influencer, price }) {
             </div>
           </div>
           <div className='mt-2'>
-            <p className='text-gray-600 text-sm'>Biaya Iklan</p>
+            <p className='text-gray-600 text-sm'>Campaign Price</p>
             <p className='text-gray-800 font-bold text-sm'>{price}</p>
           </div>
         </div>
