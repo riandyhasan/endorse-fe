@@ -37,7 +37,7 @@ export default function Home() {
             </div>
             <div>
               <div className='uppercase tracking-wide text-sm text-[#3C3C43] font-semibold'>
-                Hi,
+                Hi, Randy
               </div>
               <p className='block mt-1 text-2xl leading-tight font-medium text-black'>
                 Ayam Geprek Bebas

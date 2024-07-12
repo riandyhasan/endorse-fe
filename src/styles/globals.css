@@ -26,7 +26,7 @@ button {
 #__next {
   margin: 0 auto;
   max-width: 1080px;
-  height: 87vh;
+  height: 100vh;
   position: relative;
   overflow: none;
   background-color: white;
