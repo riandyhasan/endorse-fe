@@ -4,7 +4,7 @@ import Header from '../../components/Layout/Header';
 
 export default function CampaignAI() {
   return (
-    <div className='shadow-md overflow-x-hidden min-h-[100vh] relative'>
+    <div className='shadow-md overflow-hidden h-full relative pt-[4rem]'>
       <Header back={true} />
 
       <div className='p-8'>

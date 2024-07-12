@@ -7,7 +7,7 @@ export default function Header({ back, message, notif }) {
   const router = useRouter();
   return (
     <header
-      className='flex items-center justify-between px-4 py-2 min-h-24'
+      className='fixed top-0 w-full max-w-[1080px] flex items-center justify-between px-4 py-2 min-h-14'
       style={{
         backgroundImage: 'url(/img/header_bg.png)',
         backgroundSize: 'cover',
