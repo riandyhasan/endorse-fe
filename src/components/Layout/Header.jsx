@@ -7,7 +7,7 @@ export default function Header({ back, message, notif }) {
   const router = useRouter();
   return (
     <header
-      className='flex items-center justify-between px-4 py-2 min-h-14'
+      className='flex items-center justify-between px-4 py-2 min-h-24'
       style={{
         backgroundImage: 'url(/img/header_bg.png)',
         backgroundSize: 'cover',
@@ -19,8 +19,8 @@ export default function Header({ back, message, notif }) {
           <Image
             src={ICONS.BACK}
             alt='Back'
-            width={24}
-            height={24}
+            width={30}
+            height={30}
             className='text-white'
           />
         </div>
@@ -33,8 +33,8 @@ export default function Header({ back, message, notif }) {
             <Image
               src={ICONS.MESSAGE}
               alt='Messages'
-              width={30}
-              height={30}
+              width={36}
+              height={36}
               className='text-white'
             />
           </div>
@@ -44,8 +44,8 @@ export default function Header({ back, message, notif }) {
             <Image
               src={ICONS.NOTIFICATION}
               alt='Notifications'
-              width={24}
-              height={24}
+              width={30}
+              height={30}
               className='text-white'
             />
           </div>
