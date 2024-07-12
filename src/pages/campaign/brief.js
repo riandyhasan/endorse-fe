@@ -33,7 +33,7 @@ export default function ContentBrief() {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        'https://mrfirdauss-endorse-rag-baru.hf.space/similarity',
+        'https://mrfirdauss-endorse-baru.hf.space/similarity',
         { prompt: briefContent },
         {
           headers: {

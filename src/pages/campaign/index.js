@@ -59,7 +59,7 @@ export default function Campaign() {
     try {
       if (withAI) {
         const response = await axios.post(
-          'https://mrfirdauss-endorse-rag-baru.hf.space/brief',
+          'https://mrfirdauss-endorse-baru.hf.space/brief',
           formData,
           {
             headers: {

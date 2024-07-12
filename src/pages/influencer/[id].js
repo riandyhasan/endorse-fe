@@ -18,7 +18,7 @@ export default function InfluencerDetail() {
     const fetchInfluencer = async (id) => {
       try {
         const response = await axios.get(
-          `https://mrfirdauss-endorse-rag-baru.hf.space/influencer/${id}`,
+          `https://mrfirdauss-endorse-baru.hf.space/influencer/${id}`,
           {
             headers: {
               accept: 'application/json',
