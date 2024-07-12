@@ -7,6 +7,7 @@ import InfluencerCard from '../../components/Card/InfluencerCard';
 
 export default function ContentBrief() {
   const [briefContent, setBriefContent] = useState('');
+  const [campaign, setCampaign] = useState({});
 
   const [influencers, setInfluencers] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
@@ -60,6 +61,7 @@ export default function ContentBrief() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setBriefContent(sessionStorage.getItem('brief') ?? '');
+      setCampaign(JSON.parse(sessionStorage.getItem('campaign') ?? ''));
     }
   }, []);
 
@@ -140,7 +142,7 @@ export default function ContentBrief() {
                   id={inf['ID ']}
                   name={inf['Nama']}
                   image={inf.image}
-                  interest={inf.interest}
+                  interest={campaign.kategoriIklan}
                   location={inf.lokasi}
                   instagram={inf.instagram}
                   price={inf.biaya}
